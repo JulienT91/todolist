@@ -1,13 +1,11 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import TodoList from "./components/TodoList";
 
 function App() {
-  const monTitre = "Hello react";
   return (
-    <div className="App">
-      <h1>{monTitre.toUpperCase()}</h1>
-      <Navbar />
-    </div>
+    <main>
+      <TodoList />
+    </main>
   );
 }
 
