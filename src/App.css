@@ -1,4 +1,68 @@
+* {
+  font-family: "Roboto Mono", monospace;
+  color: #fc856f;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+body {
+  background-color: #f5e5e2;
+  height: 600px;
+  display: grid;
+  align-items: center;
+  place-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+form {
+  padding: 10px;
+}
+.inputText {
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin: 5px;
+  border-color: #f5e5e2;
+  transition: 0.6s ease-in-out;
+}
+
+button {
+  background-color: #fc856f;
+  color: #f5e5e2;
+  border-color: #fc856f;
+  border-radius: 5px;
+  padding: 0.3rem;
+  transition: 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+button:hover {
+  background: #f5e5e2;
+  color: #fc856f;
+  cursor: pointer;
+}
+
+li {
+  background: #f5e5e2;
+  padding: 5px;
+}
+label {
+  padding: 5px;
+}
+input[type="checkbox"] {
+  transition: 0.6s ease-in-out;
+}
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+input[type="checkbox"]:hover,
+.inputText:hover {
+  box-shadow: 0px 0px 10px #fc856f;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+
 .App {
   text-align: center;
 }
-/*faire le style du form et de la liste*/

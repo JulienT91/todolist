@@ -2,8 +2,11 @@
 function TodoItem(props) {
   return (
     <li>
-      <label htmlFor="title">{props.title}</label>
+      <label className="listLabel" htmlFor="title">
+        {props.title}
+      </label>
       <input type="checkbox"></input>
+      <span className="customCheckBox"></span>
     </li>
   );
 }

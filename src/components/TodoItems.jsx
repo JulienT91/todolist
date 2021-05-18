@@ -1,5 +1,4 @@
 import TodoItem from "./TodoItem";
-// ajout d'un label et checkbox
 function TodoItems() {
   return (
     <ul className="todoItems">
