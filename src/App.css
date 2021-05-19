@@ -48,12 +48,14 @@ li {
   background: #f5e5e2;
   padding: 5px;
 }
+
 label {
   padding: 5px;
 }
 input[type="checkbox"] {
   transition: 0.6s ease-in-out;
 }
+
 input[type="checkbox"]:hover {
   cursor: pointer;
 }
@@ -61,6 +63,7 @@ input[type="checkbox"]:hover,
 .inputText:hover {
   box-shadow: 0px 0px 10px #fc856f;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
 
 .App {
