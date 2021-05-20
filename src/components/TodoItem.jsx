@@ -1,3 +1,5 @@
+import EditableField from "./EditableField";
+
 // ajout d'un label et checkbox
 function TodoItem(props) {
   const task = props.task;
@@ -10,16 +12,26 @@ function TodoItem(props) {
   function onDelete() {
     props.deleteTask(task);
   }
+  function onNewValue(value) {
+    props.updateTask({
+      ...task,
+      title: value,
+    });
+  }
   return (
     <li>
-      <label className="listLabel" htmlFor={task.id}>
-        {task.title}
-        <input
-          type="checkbox"
-          id={task.id}
-          defaultChecked={task.isDone}
-          onChange={onCheck}
-        ></input>
+      <input
+        type="checkbox"
+        id={task.id}
+        defaultChecked={task.isDone}
+        onChange={onCheck}
+      />
+      <label htmlFor={task.id}>
+        <EditableField
+          value={task.title}
+          editMode={false}
+          onNewValue={onNewValue}
+        />
       </label>
       <button
         type="button"

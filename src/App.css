@@ -18,6 +18,11 @@ body {
 h1 {
   text-align: center;
 }
+
+progress {
+  transition: all 0.5s;
+  width: 100%;
+}
 form {
   padding: 10px;
 }
