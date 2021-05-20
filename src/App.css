@@ -9,7 +9,6 @@
 
 body {
   background-color: #f5e5e2;
-  height: 600px;
   display: grid;
   align-items: center;
   place-content: center;

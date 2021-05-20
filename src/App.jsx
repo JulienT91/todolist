@@ -45,11 +45,20 @@ function App() {
       setTodolists([...todoLists]);
     }
   }
+  function addList() {
+    const newList = {
+      id: nanoid(),
+      title: "Nouvelle liste",
+      tasks: [],
+    };
+    setTodolists([...todoLists, newList]);
+  }
   return (
     <main>
       <h1>
         <i className="fas fa-clipboard-list"></i> TodoList
       </h1>
+      <button onClick={addList}>Créer une nouvelle liste</button>
       {todoLists.map((todo) => (
         <TodoList key={todo.id} todo={todo} updateTodo={updateTodo} />
       ))}
