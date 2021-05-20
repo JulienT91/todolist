@@ -1,18 +1,24 @@
-import { useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoItems from "./TodoItems";
 function TodoList(props) {
-  const [tasks, setTasks] = useState(props.tasks);
+  const tasks = props.todo.tasks;
+  const title = props.todo.title;
 
   function addTask(newTask) {
-    setTasks([...tasks, newTask]);
+    props.updateTodo({
+      ...props.todo,
+      tasks: [...tasks, newTask],
+    });
   }
 
   function updateTask(taskUpdated) {
     let pos = tasks.findIndex((task) => task.id === taskUpdated.id);
     if (pos > -1) {
       tasks.splice(pos, 1, taskUpdated);
-      setTasks([...tasks]);
+      props.updateTodo({
+        ...props.todo,
+        tasks: [...tasks],
+      });
     }
   }
 
@@ -20,14 +26,15 @@ function TodoList(props) {
     let pos = tasks.findIndex((task) => task.id === taskDeleted.id);
     if (pos > -1) {
       tasks.splice(pos, 1);
-      setTasks([...tasks]);
+      props.updateTodo({
+        ...props.todo,
+        tasks: [...tasks],
+      });
     }
   }
   return (
     <div className="todoList">
-      <h1>
-        <i className="fas fa-clipboard-list"></i> TodoList
-      </h1>
+      <h2>{title}</h2>
       <TodoForm addTask={addTask} />
       <TodoItems
         tasks={tasks}
