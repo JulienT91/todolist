@@ -45,6 +45,13 @@ function App() {
       setTodolists([...todoLists]);
     }
   }
+  function deleteTodo(todoDeleted) {
+    let pos = todoLists.findIndex((todo) => todo.id === todoDeleted.id);
+    if (pos > -1) {
+      todoLists.splice(pos, 1);
+      setTodolists([...todoLists]);
+    }
+  }
   function addList() {
     const newList = {
       id: nanoid(),
@@ -60,7 +67,12 @@ function App() {
       </h1>
       <button onClick={addList}>Créer une nouvelle liste</button>
       {todoLists.map((todo) => (
-        <TodoList key={todo.id} todo={todo} updateTodo={updateTodo} />
+        <TodoList
+          key={todo.id}
+          todo={todo}
+          updateTodo={updateTodo}
+          deleteTodo={deleteTodo}
+        />
       ))}
     </main>
   );

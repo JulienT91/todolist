@@ -40,10 +40,14 @@ function TodoList(props) {
       title: newTitle,
     });
   }
+  function deleteTodo() {
+    props.deleteTodo(props.todo);
+  }
   return (
     <div className="todoList">
       <h2>
         <EditableField value={title} onNewValue={changeTitle} />
+        <button onClick={deleteTodo}>❌</button>
       </h2>
       <TodoForm addTask={addTask} />
       <TodoItems

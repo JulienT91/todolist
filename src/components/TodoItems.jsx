@@ -2,7 +2,6 @@ import TodoItem from "./TodoItem";
 function TodoItems(props) {
   const tasks = props.tasks;
   const nbDone = tasks.filter((t) => t.isDone).length;
-  const percent = (nbDone / tasks.length) * 100;
   function updateTask(taskUpdated) {
     props.updateTask(taskUpdated);
   }
@@ -14,7 +13,7 @@ function TodoItems(props) {
       <p>
         {nbDone}/{tasks.length} effectuées
       </p>
-      <progress max="100" value={percent}></progress>
+      <progress max={tasks.length} value={nbDone} />
       <ul className="todoItems">
         {tasks.map((task) => (
           <TodoItem
