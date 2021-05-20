@@ -1,3 +1,4 @@
+import EditableField from "./EditableField";
 import TodoForm from "./TodoForm";
 import TodoItems from "./TodoItems";
 function TodoList(props) {
@@ -32,9 +33,18 @@ function TodoList(props) {
       });
     }
   }
+
+  function changeTitle(newTitle) {
+    props.updateTodo({
+      ...props.todo,
+      title: newTitle,
+    });
+  }
   return (
     <div className="todoList">
-      <h2>{title}</h2>
+      <h2>
+        <EditableField value={title} onNewValue={changeTitle} />
+      </h2>
       <TodoForm addTask={addTask} />
       <TodoItems
         tasks={tasks}
