@@ -1,43 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import TodoList from "./components/TodoList";
 import { nanoid } from "nanoid";
+import StorageService from "./services/StorageService";
 
 function App() {
-  const [todoLists, setTodolists] = useState([
-    {
-      id: nanoid(),
-      title: "Ma première liste",
-      tasks: [
-        {
-          id: nanoid(),
-          title: "Faire les courses",
-          isDone: true,
-        },
-        {
-          id: nanoid(),
-          title: "Nourrir le chat",
-          isDone: true,
-        },
-      ],
-    },
-    {
-      id: nanoid(),
-      title: "Ma deuxième liste",
-      tasks: [
-        {
-          id: nanoid(),
-          title: "Faire les courses",
-          isDone: true,
-        },
-        {
-          id: nanoid(),
-          title: "Nourrir le chat",
-          isDone: true,
-        },
-      ],
-    },
-  ]);
+  const [todoLists, setTodolists] = useState([]);
+
+  useEffect(() => {
+    console.log("Chargement des données depuis le localstorage");
+    const data = StorageService.getTodoLists();
+    setTodolists(data);
+  }, []);
+
+  useEffect(() => {
+    console.log("CHANGEMENT DETECTE ! Sauvegarde en localStorage");
+    StorageService.saveTodoLists(todoLists);
+  }, [todoLists]);
+
   function updateTodo(todoUpdated) {
     let pos = todoLists.findIndex((todo) => todo.id === todoUpdated.id);
     if (pos > -1) {
